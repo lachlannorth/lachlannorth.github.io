@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lachlan North · Portfolio</title>
+<!-- Projects now open in a pop-up on the homepage. This page forwards old links (project.html?p=id) there. -->
+<script>
+  const id = new URLSearchParams(location.search).get("p");
+  location.replace("index.html" + (id ? "#" + encodeURIComponent(id) : ""));
+</script>
+</head>
+<body><a href="index.html">Go to the portfolio</a></body>
+</html>
