@@ -31,27 +31,27 @@ const PROJECTS = [
     category: "Aerospace concept",
     year: "2026–2027",
     status: "In progress",
-    summary: "My senior design project: two types of drones that work together to inspect bridges, for NASA's 2027 Gateways to Blue Skies competition.",
+    summary: "My senior design project: designing an airborne inspection system for NASA's 2027 Gateways to Blue Skies competition.",
     facts: [
       { label: "Type", value: "Senior design project" },
       { label: "Competition", value: "NASA Gateways to Blue Skies 2027" },
-      { label: "Role", value: "Airframe structures & propulsion sizing" },
+      { label: "Team", value: "4 students" },
+      { label: "Role", value: "Airframe structures, propulsion & CAD" },
       { label: "Status", value: "Preliminary Design Review complete" },
       { label: "Advisor", value: "Professor Roberts" }
     ],
     sections: [
       { heading: "Overview",
-        text: ["For my senior design project, our team is competing in NASA's 2027 Gateways to Blue Skies competition. The 2027 theme, InfraAir, asks student teams to design aircraft that make inspecting land-based infrastructure safer, more reliable, and cheaper, with a concept that could realistically be deployed by 2035."] },
-      { heading: "The Problem",
-        text: ["We chose bridges. Inspecting a bridge today often means closing lanes, bringing in snooper trucks, and putting inspectors at height over traffic or water. It's slow, expensive, and dangerous, and a lot of what inspectors are looking for, like cracking and internal deterioration, can't be judged from a distance with a camera alone."] },
-      { heading: "Our Concept",
-        text: ["Our system inspects in two passes using two separate types of unmanned aircraft. A large survey drone carries LiDAR, an RGB camera, and ground-penetrating radar to scan the whole structure. Three smaller contact drones then carry contact sensing heads for the measurements that need to be taken right at the surface. Splitting the job lets each aircraft be designed around what it actually has to carry, instead of one drone trying to do everything."] },
+        text: ["For my senior design project, our four-person team is competing in NASA's 2027 Gateways to Blue Skies competition. The 2027 theme, InfraAir, challenges student teams to design airborne platforms that make inspecting land-based infrastructure safer, more reliable, and cheaper, with a concept that could realistically be deployed by 2035. On top of the NASA deliverables, Cal Poly's senior project requires a physical prototype, so we're also building a proof of concept."] },
+      { heading: "The Challenge",
+        text: ["Inspecting infrastructure like bridges, tunnels, and power lines often means closing lanes, bringing in heavy equipment, and putting inspectors at height or in tight spaces. The biggest cost usually isn't the inspection itself. It's getting people safely to the structure, which is exactly where an aircraft can help."] },
       { heading: "My Role",
-        text: ["I'm responsible for the airframe structures and propulsion sizing. I ran the structural analysis on the airframes, including the stress and deflection calculations, and sized the rotors and motors against the lift and flight time the mission requires. Since the survey drone and the contact drones carry very different payloads, they end up with very different structural and propulsion requirements, so each one had to be sized on its own."] },
+        text: ["I'm responsible for the airframe structures and propulsion. I ran the stress and deflection hand calculations on the rotor arms and sized the rotors and motors against the lift and flight time the mission requires. I also modeled the arms, motors, rotors, and frame in CAD, which went into the team's full assembly."] },
       { heading: "Where We Are",
-        text: ["We've completed our Preliminary Design Review, with Professor Roberts as our advisor. Our 5–7 page proposal and 2-minute concept video are due in February 2027. Up to eight finalist teams are selected in March, and finalists present a full paper, infographic, and talk to NASA and industry judges at the Gateways to Blue Skies Forum in May."] },
+        text: ["We completed our Preliminary Design Review in October 2026 and are working toward our Critical Design Review. Our proposal and 2-minute concept video are due to NASA in February 2027, up to eight finalist teams are selected in March, and finalists present to NASA and industry judges at the Gateways to Blue Skies Forum in May."] },
       { heading: "What I'm Learning",
-        text: ["On an aircraft, weight drives almost every decision. Every bit of weight I save in the structure is lift and battery the motors don't have to make up for, which is exactly why the airframe and propulsion have to be designed together instead of one after the other. The competition also pushes past the hardware to regulations, training, and cost, since those are what decide whether a concept could actually be adopted."] }
+        text: ["On an aircraft, weight drives almost every decision. Every bit of weight saved in the structure is lift and battery the motors don't have to make up for, which is exactly why the airframe and propulsion have to be designed together instead of one after the other. The project has also pushed me to think past the hardware to regulations and safety, since those decide whether a concept could ever actually be used."] },
+      { text: ["Since the competition is still running, I'm keeping our concept details private for now, but I'm happy to walk through the design in more depth in person."] }
     ],
     images: [
       { src: "images/gbs-logo.png", caption: "NASA Gateways to Blue Skies competition logo", small: true }
