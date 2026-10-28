@@ -121,7 +121,7 @@
         ${s.list ? `<ul>${s.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>` : ""}`).join("")}
       ${p.video ? `<video src="${esc(p.video.src)}" controls muted playsinline preload="metadata"></video>` : ""}
       ${imgs.length > 1 ? `<div class="pics">${imgs.slice(1).map(im => `
-        <figure>
+        <figure class="${im.photo ? "" : "wide"}">
           <a href="${esc(im.src)}" target="_blank" rel="noopener"><img src="${esc(im.src)}" alt="${esc(im.caption)}" loading="lazy" class="${im.photo ? "photo" : ""}"></a>
           <figcaption>${esc(im.caption)}</figcaption>
         </figure>`).join("")}</div>` : ""}
