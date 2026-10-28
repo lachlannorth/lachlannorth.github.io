@@ -16,7 +16,7 @@
      thumbText text shown instead of a picture when there's no cover
      facts     small label/value pairs at the top of the pop-up
      sections  { heading, text: [paragraphs], list: [bullet points] }
-     images    { src, caption, photo: true for photos }; the first one is shown large
+     images    { src, caption, photo: true for photos, small: true for logos }; the first one is shown large
      video     optional { src, caption }
      downloads optional { label, href }
      (category and lede aren't currently shown on the site)
@@ -25,27 +25,30 @@
 const PROJECTS = [
   {
     id: "infraair",
-    thumbText: "InfraAir 2027",
+    cover: "images/gbs-logo.png",
+    coverFit: "contain",
     title: "InfraAir: Aircraft for Infrastructure Inspection",
     category: "Aerospace concept",
     year: "2026–2027",
     status: "In progress",
-    summary: "A student-team concept for NASA's 2027 Gateways to Blue Skies competition.",
-    lede: "Our Cal Poly team is developing an airborne system concept for NASA's 2027 Gateways to Blue Skies competition, which challenges students to make the inspection of bridges, tunnels, power grids and other land-based infrastructure safer, more reliable and less costly, with deployment by 2035.",
+    summary: "Senior design project: a two-drone bridge inspection system for NASA's 2027 Gateways to Blue Skies competition.",
+    lede: "Our Cal Poly senior design team is developing a two-pass bridge inspection system built around two separate unmanned aircraft for NASA's 2027 Gateways to Blue Skies competition.",
     facts: [
-      { label: "Competition", value: "NASA Gateways to Blue Skies" },
-      { label: "Theme", value: "InfraAir: aviation for infrastructure inspection" },
-      { label: "Role", value: "Team member" },
-      { label: "Status", value: "Phase 1 proposal in progress" }
+      { label: "Type", value: "Senior design project" },
+      { label: "Competition", value: "NASA Gateways to Blue Skies 2027" },
+      { label: "Role", value: "Airframe structures & propulsion sizing" },
+      { label: "Status", value: "Preliminary Design Review complete" },
+      { label: "Advisor", value: "Professor Roberts" }
     ],
     sections: [
-      { heading: "The Challenge",
-        text: ["Aging infrastructure needs frequent inspection, but the work is often slow, disruptive and dangerous: inspectors work at height, in confined spaces, beside live traffic or near high-voltage lines. The 2027 competition asks teams to conceptualize innovative airborne platforms that improve the safety, reliability, efficiency and cost of these inspections."] },
-      { heading: "What We're Working On",
+      { heading: "Overview",
+        text: ["Cal Poly senior design project, September 2026 – present. NASA's 2027 Gateways to Blue Skies competition challenges student teams to design airborne platforms that make inspecting bridges, tunnels, power grids and other land-based infrastructure safer, more reliable and less costly. Bridge inspection today often means lane closures, snooper trucks and inspectors working at height.",
+               "Our concept is a two-pass bridge inspection system using two separate unmanned aircraft: a large survey drone carrying LiDAR, an RGB camera and ground-penetrating radar, and three smaller contact drones carrying contact sensing heads."] },
+      { heading: "My Contribution",
         list: [
-          "Assessing current inspection practice for a specific type of infrastructure and identifying where an airborne solution adds the most value.",
-          "Developing a concept of operations covering the aircraft, sensors, data flow, and operation in GPS-denied, confined or adverse conditions.",
-          "Building a path to deployment: technology readiness, regulations, training, cost and return on investment."
+          "Ran the structural analysis for the airframes, including stress and deflection calculations.",
+          "Sized the rotors and motors against the lift and endurance the mission requires.",
+          "Contributed to the team's Preliminary Design Review, now complete."
         ] },
       { heading: "Competition Timeline",
         list: [
@@ -54,10 +57,15 @@ const PROJECTS = [
           "May 2027: finalists present a final paper, infographic and talk to NASA and industry judges at the Gateways to Blue Skies Forum."
         ] },
       { heading: "What I'm Learning",
-        text: ["How to frame an engineering problem at the systems level before designing anything: understanding who does the work today, what limits them, and what a new technology must prove before an organization will adopt it. The competition also pushes us to think past the hardware, to technology readiness, regulations, training and cost."] },
-      { text: ["Concept details will be shared after the Phase 1 submission in February 2027."] }
+        list: [
+          "In aircraft, weight drives everything: every gram the structure saves is lift and endurance the propulsion system doesn't have to provide, so the airframe and propulsion sizing have to be iterated together.",
+          "Designing two different aircraft for one mission means thinking at the systems level: what each vehicle must carry, how they work together, and how the inspection data reaches the engineers who use it.",
+          "The competition pushes past the hardware to technology readiness, regulations, training and cost, which is what decides whether a concept could actually be adopted."
+        ] }
     ],
-    images: []
+    images: [
+      { src: "images/gbs-logo.png", caption: "NASA Gateways to Blue Skies competition logo", small: true }
+    ]
   },
 
   {
@@ -70,19 +78,21 @@ const PROJECTS = [
     coverFit: "contain",
     lede: "Design of a complete electric drivetrain able to drive a 750 lbf vehicle and rider up a 15° incline at 10 mph, built entirely from standard purchasable components.",
     facts: [
-      { label: "Course", value: "ME 329, Cal Poly" },
+      { label: "Course", value: "ME 329 Mechanical Systems Design" },
       { label: "Role", value: "Team lead (4 students)" },
       { label: "Tools", value: "SolidWorks, Excel, hand calculations" },
       { label: "Output", value: "3,480 lb-in at 141.7 rpm" }
     ],
     sections: [
       { heading: "Overview",
-        text: ["Cal Poly ME 329 · Team design project, Spring 2026. Starting from the vehicle requirements (750 lbf total weight, a 15° incline and a 10 mph target speed), we used a free body diagram to find the traction force, wheel torque and wheel speed the drivetrain had to deliver, then worked backwards from the wheel to the motor so every component was sized around the same loads."] },
+        text: ["Cal Poly ME 329 Mechanical Systems Design · Team design project, Spring 2026. Starting from the vehicle requirements (750 lbf total weight, a 15° incline and a 10 mph target speed), we used a free body diagram to find the traction force, wheel torque and wheel speed the drivetrain had to deliver, then worked backwards from the wheel to the motor so every component was sized around the same loads."] },
       { heading: "My Contribution",
         list: [
           "Team lead: led the four-person team through the design, from the vehicle requirements to the final component selection.",
           "Selected the motor by working from the vehicle loading analysis to the required wheel torque, speed and power.",
+          "Set the gear ratios for the 24:1 four-stage reduction from a free-body analysis of the vehicle on the incline, and verified every gear pair against AGMA bending and pitting stress.",
           "Built the shaft and gear calculators the team used to size gears and check shaft fatigue safety factors.",
+          "Designed the shafts for infinite fatigue life in 1018 and 1030 cold-drawn steel, and selected the bearings and chain drive from standard purchasable components.",
           "Drew the detail drawings for both shafts, including keyseats, fillets and runout tolerances."
         ] },
       { heading: "Design & Analysis",
@@ -124,16 +134,21 @@ const PROJECTS = [
     cover: "images/scooter-build.jpg",
     lede: "A lightweight, low-cost kart-style scooter built mostly from PVC, taken from load cases and hand calculations through FEA to a working prototype and physical testing.",
     facts: [
-      { label: "Course", value: "ME 328, Cal Poly" },
+      { label: "Course", value: "ME 328 Design for Strength and Stiffness" },
       { label: "Role", value: "Team member (4 students)" },
       { label: "Tools", value: "SolidWorks, SolidWorks Simulation" },
       { label: "Design load", value: "~220 lb (1.5 safety factor)" }
     ],
     sections: [
       { heading: "Overview",
-        text: ["Cal Poly ME 328 · Team design project, Winter 2026. Design a scooter that is simple, affordable and buildable from readily available materials, carries an adult rider pushed from behind, fits through a standard doorway, and steers directly by hand or foot. All load-bearing joints had to use structural materials, not 3D-printed parts."] },
+        text: ["Cal Poly ME 328 Design for Strength and Stiffness · Team design project, Winter 2026. Design a scooter that is simple, affordable and buildable from readily available materials, carries an adult rider pushed from behind, fits through a standard doorway, and steers directly by hand or foot. All load-bearing joints had to use structural materials, not 3D-printed parts."] },
       { heading: "My Contribution",
-        text: ["Worked as part of a four-person team to take the scooter from load cases and hand calculations through SolidWorks FEA, fabrication and physical deflection testing."] },
+        list: [
+          "Designed and built a rideable PVC-frame vehicle to a 220 lb design load, evaluating three load cases including a curb-impact abuse case.",
+          "Ran SolidWorks Simulation FEA against hand calculations to locate the peak von Mises stress at the four-way steering joint, along with other high-stress locations to design around.",
+          "Built the test setup and measured deflection on the finished frame.",
+          "Troubleshot a joint failure at a location neither analysis had flagged, traced it to a support truss removed during fabrication and adhesive applied for only one load direction, and corrected the assembly."
+        ] },
       { heading: "Design & Analysis",
         list: [
           "Applied a 1.5 safety factor to a 155 lb rider for a design load of about 220 lb.",
@@ -208,7 +223,7 @@ const PROJECTS = [
     cover: "images/mfg-engine.jpg",
     lede: "Parts I made in Cal Poly's manufacturing courses, where I used Mastercam to produce a custom casting and became comfortable on the mill, the lathe and the welding bench.",
     facts: [
-      { label: "Where", value: "Cal Poly manufacturing courses" },
+      { label: "Courses", value: "Subtractive Manufacturing, Materials Joining (Welding), Casting" },
       { label: "Type", value: "Individual" },
       { label: "Tools", value: "Mastercam, mill, lathe, welding" }
     ],
@@ -276,26 +291,79 @@ const PROJECTS = [
       { src: "images/shifter-parts.png", caption: "Part drawings: shaft body, upper fork and lower fork" }
     ],
     downloads: [ { label: "Drawings (PDF)", href: "files/shifter-fork-drawings.pdf" } ]
+  },
+
+  {
+    id: "eagle-project",
+    title: "Eagle Scout Project: Flagpole Planter & Campus Improvements",
+    category: "Leadership & build",
+    year: "2022",
+    summary: "Planned and led the build of a custom planter box around my former K–8 school's flagpole, designed to keep a sewer cleanout accessible, plus other campus improvements.",
+    cover: "images/eagle-planter-finished.jpg",
+    facts: [
+      { label: "Type", value: "Eagle Scout service project, 2022" },
+      { label: "Role", value: "Project leader" },
+      { label: "Service", value: "400 hours of community service" },
+      { label: "Partner", value: "My former K–8 school" }
+    ],
+    sections: [
+      { heading: "Overview",
+        text: ["For my Eagle Scout project, I worked with my former kindergarten through 8th grade school to improve a worn area of the campus around the flagpole. The main piece was a quality planter box built around the flagpole base. It also had to keep a sewer cleanout pipe beside the pole accessible for maintenance. Alongside the planter, we completed other beautification work around the school, including sanding and refinishing existing wooden planters."] },
+      { heading: "My Contribution",
+        list: [
+          "Coordinated with the school to agree on the scope, the design and the schedule for the work.",
+          "Laid out the planter footprint on site around the flagpole and the sewer cleanout.",
+          "Planned the materials and work days, and led a team of volunteers through the build and the finishing work.",
+          "Saw the project through from the first site visit to the finished, planted box."
+        ] },
+      { heading: "Result",
+        text: ["The finished planter is a solid, stained wood box filled with succulents and flowers. It turned a bare concrete pole base into a feature of the courtyard while still leaving maintenance access to the cleanout. The refinished planters around the campus gave the school a cleaner, cared-for look."] },
+      { heading: "What I Learned",
+        list: [
+          "Real projects come with existing constraints: designing around the sewer cleanout meant the planter had to work for the maintenance staff, not just look good.",
+          "Coordinating with a client (here, the school) means agreeing on expectations early and keeping them informed as plans change.",
+          "Leading volunteers takes preparation: having tools, materials and clear tasks ready makes a work day productive and safe.",
+          "Taking a project from a chalk outline to a finished build gave me a real appreciation for planning, measuring twice and finishing work properly."
+        ] }
+    ],
+    images: [
+      { src: "images/eagle-planter-finished.jpg", caption: "Finished planter around the flagpole", photo: true },
+      { src: "images/eagle-before.jpg", caption: "Before: the flagpole base", photo: true },
+      { src: "images/eagle-layout.jpg", caption: "Chalk layout of the planter footprint around the sewer cleanout", photo: true },
+      { src: "images/eagle-volunteers.jpg", caption: "Volunteers sanding and refinishing existing planters", photo: true },
+      { src: "images/eagle-planter-day.jpg", caption: "Completed planter, planted with succulents", photo: true }
+    ]
   }
 ];
 
-/* Experience: newest first. Add internships and jobs here. */
-const JOBS = [
-  { org: "California Polytechnic State University, San Luis Obispo",
-    role: "B.S. Mechanical Engineering",
-    dates: "In progress",
-    courses: [
-      "Fluid Mechanics",
-      "Heat Transfer",
-      "Thermodynamics",
-      "Thermal Systems Design",
-      "Energy Conversion",
-      "Mechanical Vibrations"
-    ],
-    points: [
-      "Machine design: motor, gear, shaft, bearing and chain selection with fatigue analysis (ME 329).",
-      "Design for strength and stiffness: hand calculations, FEA and physical testing of a built prototype (ME 328).",
-      "Engineering drawings, GD&T, and SolidWorks assemblies and motion studies (ME 251).",
-      "Hands-on manufacturing: machining, metal casting and welding."
-    ] }
+/* About section: each string is one paragraph. */
+const ABOUT = [
+  "Hi! I'm Lachlan North, a mechanical engineering major at California Polytechnic State University, San Luis Obispo.",
+  "Throughout my time in engineering, I've enjoyed every portion of a project, from early ideation through to the point where a design stops being a drawing and becomes something you can pick up. Manufacturing, project engineering, design, quality, and test work all interest me, whether in hardware, medical devices, or building systems. I enjoy problem solving and working in group environments, and I'm always looking to keep learning and expand my skillset. Through Cal Poly's Learn by Doing philosophy, I've had experience machining, welding, casting, and running the analysis to bring concepts from ideation to prototype.",
+  "Outside of engineering you'll find me outside. I love backpacking, hiking, swimming, playing basketball, and friendly competition. I'm always up for experiencing new things and traveling, and I spent a semester studying abroad in Madrid.",
+  "I'm currently open to work, so feel free to reach out."
 ];
+
+/* Education, coursework and software (from my résumé). */
+const EDUCATION = {
+  school: "California Polytechnic State University, San Luis Obispo",
+  degrees: [
+    { name: "B.S. Mechanical Engineering", date: "June 2027" },
+    { name: "M.S. Engineering Management (Blended Program)", date: "Expected June 2028" },
+    { name: "Study Abroad: Universidad Rey Juan Carlos, Madrid, Spain", date: "Fall 2025" }
+  ],
+  honors: "GPA 3.672 · Dean's List (8) and President's List",
+  completed: ["Statics", "Dynamics", "Mechanics of Materials", "Materials Engineering", "Thermodynamics", "Heat Transfer", "Fluid Mechanics", "Subtractive Manufacturing", "Materials Joining (Welding)", "Casting"],
+  inProgress: ["Vibrations and System Modeling", "Mechanical Controls and Implementation", "Energy Conversion", "Senior Design Project"],
+  software: ["SOLIDWORKS", "SOLIDWORKS Simulation", "Autodesk Fusion", "Mastercam", "GD&T", "MATLAB", "Python", "Microsoft Office"]
+};
+
+/* Leadership & activities. Delete this list (keep "const ACTIVITIES = [];") to hide the section. */
+const ACTIVITIES = [
+  { name: "NGCP Design Team", detail: "Design team member on an autonomous casualty-retrieval device", date: "2026 – Present" },
+  { name: "Boy Scouts of America: Eagle Scout", detail: "400-hour community service Eagle project; troop leadership roles", date: "2016 – 2023" },
+  { name: "Cal Poly Club Swim", detail: "Train multiple times weekly and compete in collegiate club meets", date: "2025 – Present" },
+  { name: "Varsity Water Polo and Swim: Team Captain", detail: "Captained both teams and led each to a league title", date: "2022 – 2023" }
+];
+
+const LINKEDIN = "https://www.linkedin.com/in/lachlan-north-96b2ba246";

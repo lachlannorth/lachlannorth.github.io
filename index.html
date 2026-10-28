@@ -18,6 +18,7 @@
     <nav>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
+      <a href="https://www.linkedin.com/in/lachlan-north-96b2ba246" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:05lachlan.north@gmail.com">Contact</a>
     </nav>
   </div>
@@ -25,12 +26,13 @@
 
 <main class="wrap">
   <div class="intro">
+    <span class="open-tag">Open to work</span>
     <h1>Lachlan North</h1>
-    <p>Mechanical engineering student at Cal Poly, San Luis Obispo, interested in advanced manufacturing, design and medical technologies.</p>
+    <p>Mechanical engineering student at Cal Poly, San Luis Obispo, interested in manufacturing, project engineering, design, quality and test, from hardware and medical devices to building systems.</p>
     <div class="actions">
       <a class="btn" href="#projects">See my projects</a>
       <a class="btn ghost" href="mailto:05lachlan.north@gmail.com">Email me</a>
-      <!-- Add when ready: <a class="btn ghost" href="files/resume.pdf">Résumé</a> -->
+      <a class="btn ghost" href="https://www.linkedin.com/in/lachlan-north-96b2ba246" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 
@@ -41,9 +43,9 @@
 
   <section id="about" class="about">
     <h2>About</h2>
-    <p>I'm Lachlan, a mechanical engineering student at California Polytechnic State University, San Luis Obispo. I'm a driven engineer and a clear communicator, and I'm interested in advanced manufacturing, mechanical design and medical technologies.</p>
-    <p>I like seeing a design all the way through, from the first hand calculations to CAD, analysis and finally a real part I can test.</p>
+    <div id="about-text"></div>
     <div id="education"></div>
+    <div id="activities"></div>
   </section>
 </main>
 
@@ -82,14 +84,24 @@
       </button>
     </li>`).join("");
 
-  // ---- Education ----
-  document.getElementById("education").innerHTML = JOBS.map(j => `
+  // ---- About, education and activities ----
+  const chips = list => `<div class="courses">${list.map(c => `<span>${esc(c)}</span>`).join("")}</div>`;
+  document.getElementById("about-text").innerHTML = ABOUT.map(t => `<p>${esc(t)}</p>`).join("");
+  const E = EDUCATION;
+  document.getElementById("education").innerHTML = `
     <div class="edu">
-      <h3>${esc(j.org)}</h3>
-      <div class="sub">${esc(j.role)}${j.dates ? " · " + esc(j.dates) : ""}</div>
-      ${j.courses ? `<h4>Relevant Coursework</h4><div class="courses">${j.courses.map(c => `<span>${esc(c)}</span>`).join("")}</div>` : ""}
-      ${j.points ? `<h4>Project Experience</h4><ul>${j.points.map(pt => `<li>${esc(pt)}</li>`).join("")}</ul>` : ""}
-    </div>`).join("");
+      <h3>${esc(E.school)}</h3>
+      ${E.degrees.map(d => `<div class="degree"><span>${esc(d.name)}</span><span>${esc(d.date)}</span></div>`).join("")}
+      ${E.honors ? `<div class="sub">${esc(E.honors)}</div>` : ""}
+      <h4>Relevant Coursework: Completed</h4>${chips(E.completed)}
+      <h4>In Progress &amp; Scheduled (2026–27)</h4>${chips(E.inProgress)}
+      <h4>Software</h4>${chips(E.software)}
+    </div>`;
+  document.getElementById("activities").innerHTML = ACTIVITIES.length ? `
+    <h3 class="sub-head">Leadership &amp; Activities</h3>
+    <ul class="activities">${ACTIVITIES.map(a => `
+      <li><div><b>${esc(a.name)}</b><span>${esc(a.detail)}</span></div><span class="date">${esc(a.date)}</span></li>`).join("")}
+    </ul>` : "";
 
   // ---- Project pop-up ----
   const dialog = document.getElementById("project-dialog");
@@ -102,7 +114,7 @@
     document.getElementById("detail-title").textContent = p.title;
     content.innerHTML = `
       ${p.facts ? `<p class="facts">${p.facts.map(f => `<b>${esc(f.label)}:</b> ${esc(f.value)}`).join(" &nbsp;·&nbsp; ")}</p>` : ""}
-      ${imgs[0] ? `<a href="${esc(imgs[0].src)}" target="_blank" rel="noopener"><img class="hero-img" src="${esc(imgs[0].src)}" alt="${esc(imgs[0].caption)}"></a>` : ""}
+      ${imgs[0] ? `<a href="${esc(imgs[0].src)}" target="_blank" rel="noopener"><img class="hero-img${imgs[0].small ? " small" : ""}" src="${esc(imgs[0].src)}" alt="${esc(imgs[0].caption)}"></a>` : ""}
       ${(p.sections || []).map(s => `
         ${s.heading ? `<h3>${esc(s.heading)}</h3>` : ""}
         ${(s.text || []).map(t => `<p>${esc(t)}</p>`).join("")}
