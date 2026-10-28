@@ -79,7 +79,7 @@ const PROJECTS = [
       { heading: "Requirements & Motor Selection",
         text: ["A free-body diagram of the ATV on the incline gave a traction force of about 290 lbf at the tires. With a 12-inch wheel radius, that works out to roughly 3,480 lb-in of wheel torque, and 10 mph works out to about 140 rpm, for a power requirement of 7.73 hp. From there we selected an ME1004 brushed DC motor, which puts out 145 lb-in at 3,400 rpm, or 7.82 hp, just above what we needed."] },
       { heading: "Gear Train",
-        text: ["Comparing the wheel torque to the motor torque gave a required ratio of 24:1. We split that into four spur gear stages of 2:1, 2:1, 3:1, and 2:1, using off-the-shelf 1144 carbon steel gears from McMaster-Carr. Assuming the vehicle runs 4 hours a day, 2 days a week for 5 years at 99% reliability, we ran the gears through my gear calculator to check them against AGMA bending and pitting stress. The contact ratio came out to 1.72, above the 1.2 minimum, and the lowest safety factor was 1.2 in bending on the second pair's pinion."] },
+        text: ["Comparing the wheel torque to the motor torque gave a required ratio of 24:1. We split that into four spur gear stages of 2:1, 2:1, 3:1, and 2:1, using off-the-shelf 1144 carbon steel gears from McMaster-Carr. Assuming the vehicle runs 4 hours a day, 2 days a week for 5 years at 99% reliability, we ran the gears through my gear calculator to check them against AGMA bending and pitting stress. I set it up so you enter the torque, speed, gear sizes, pitch, and material, and it works through every AGMA factor to give the bending and contact safety factors for both gears, so trying a new gear size only meant changing a few cells. The contact ratio came out to 1.72, above the 1.2 minimum, and the lowest safety factor was 1.2 in bending on the second pair's pinion."] },
       { heading: "Shafts, Bearings & Chain",
         text: ["The gear forces set the loads on each shaft. Using the shaft calculator, we designed the shafts in 1018 and 1030 cold-drawn steel for infinite life with the modified Goodman criterion, accounting for stress concentrations at every fillet and keyway, and iterated on diameters until they both fit standard bearing bores and held up in fatigue. The lowest fatigue safety factors were 2.54 on the first shaft and 1.66 on the second. Each shaft runs on a pair of matching deep-groove ball bearings, 6207s and 6204s, sized for 99% reliability with a 1.5 application factor for the impact loading an ATV sees. A #120 roller chain on 17-tooth sprockets carries power to the wheels."] },
       { heading: "Result",
@@ -89,10 +89,12 @@ const PROJECTS = [
     ],
     images: [
       { src: "images/atv-cad.png", caption: "Drivetrain assembly: motor, four-stage gear train, and chain output" },
+      { src: "images/atv-gear-calculator.png", caption: "My AGMA gear calculator in Excel: inputs, bending and contact stresses, and safety factors for both gears in a pair" },
       { src: "images/atv-shaft1.png", caption: "Shaft 1 detail drawing" },
       { src: "images/atv-shaft2.png", caption: "Shaft 2 detail drawing" }
     ],
     downloads: [
+      { label: "Gear calculator (PDF)", href: "files/atv-gear-calculator.pdf" },
       { label: "Shaft 1 drawing (PDF)", href: "files/atv-shaft-1-drawing.pdf" },
       { label: "Shaft 2 drawing (PDF)", href: "files/atv-shaft-2-drawing.pdf" }
     ]
