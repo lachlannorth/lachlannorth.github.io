@@ -51,7 +51,7 @@ const PROJECTS = [
         text: ["We completed our Preliminary Design Review in October 2026 and are working toward our Critical Design Review. Our proposal and 2-minute concept video are due to NASA in February 2027, up to eight finalist teams are selected in March, and finalists present to NASA and industry judges at the Gateways to Blue Skies Forum in May."] },
       { heading: "What I'm Learning",
         text: ["On an aircraft, weight drives almost every decision. Every bit of weight saved in the structure is lift and battery the motors don't have to make up for, which is exactly why the airframe and propulsion have to be designed together instead of one after the other. The project has also pushed me to think past the hardware to regulations and safety, since those decide whether a concept could ever actually be used."] },
-      { text: ["Since the competition is still running, I'm keeping our concept details private for now, but I'm happy to walk through the design in more depth in person."] }
+      { text: ["Because this is an active NASA competition, our team is keeping the concept and design details private so we don't give our idea away to other teams. I'm happy to walk through the design in more depth in person, and I'll share more here once the competition wraps up."] }
     ],
     images: [
       { src: "images/gbs-logo.png", caption: "NASA Gateways to Blue Skies competition logo", small: true }
